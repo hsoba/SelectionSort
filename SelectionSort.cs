@@ -6,28 +6,30 @@ using System.Threading.Tasks;
 
 namespace SelectionSort
 {
-    public class SelectionSort
-    {        
+     public class SelectionSort
+    {
         public static void Sort(int[] inputArray)
         {
             int arraySize = inputArray.Length;
+            int i, j, temp, minIndex;
 
-            int i, j, temp, max;
-
-            for (i = 0; i < arraySize - 1; i++)     // loop through the whole array except last index
+            // One by one move boundary of unsorted subarray
+            for (i = 0; i < arraySize - 1; i++)
             {
-                max = 0;
-                for (j = 1; j < arraySize - i - 1; j++)
+                // Find the minimum index in the unsorted array
+                minIndex = i;
+                for (j = i + 1; j < arraySize; j++)
                 {
-                    if (inputArray[j] > inputArray[max])
+                    if (inputArray[j] < inputArray[minIndex])
                     {
-                        max = j;
+                        minIndex = j;
                     }
                 }
 
-                temp = inputArray[arraySize - i - 1];
-                inputArray[arraySize - i - 1] = inputArray[max];
-                inputArray[max] = temp;
+                // Swap the found minimum element with the 1st element
+                temp = inputArray[minIndex];
+                inputArray[minIndex] = inputArray[i];
+                inputArray[i] = temp;
             }
         }
     }
