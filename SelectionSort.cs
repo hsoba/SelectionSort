@@ -7,34 +7,27 @@ using System.Threading.Tasks;
 namespace SelectionSort
 {
     public class SelectionSort
-    {
-        private static bool More(int value1, int value2)
-        {
-            return value1 > value2;
-        }
-
+    {        
         public static void Sort(int[] inputArray)
         {
             int arraySize = inputArray.Length;
 
-            int i, j, temp;
-            int max = 0;
+            int i, j, temp, max;
 
             for (i = 0; i < arraySize - 1; i++)     // loop through the whole array except last index
             {
-                for (j = 0; j < arraySize - i - 1; j++)
+                max = 0;
+                for (j = 1; j < arraySize - i - 1; j++)
                 {
-                    if (More(inputArray[j], inputArray[j + 1]) && max < inputArray[arraySize - i])
+                    if (inputArray[j] > inputArray[max])
                     {
-                        max = inputArray[j];
+                        max = j;
                     }
                 }
 
-                temp = inputArray[arraySize - i];
-                inputArray[arraySize - i] = inputArray[j];
-                inputArray[j] = temp;
-
-
+                temp = inputArray[arraySize - i - 1];
+                inputArray[arraySize - i - 1] = inputArray[max];
+                inputArray[max] = temp;
             }
         }
     }

@@ -10,7 +10,7 @@ namespace SelectionSort
     {
         static void Main(string[] args)
         {
-            int[] exampleArray = new int[] { 93, 23, 12, 64, 22, 68, 47 };
+            int[] exampleArray = new int[] { 93, 23, 12, 65, 22, 68, 47 };
 
             Console.Write("Before sorting: ");
 
@@ -29,7 +29,6 @@ namespace SelectionSort
                 Console.Write(element + " ");
             }
             Console.WriteLine();
-
         }
     }
 }
